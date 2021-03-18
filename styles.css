@@ -6,18 +6,30 @@
 :root {
     --element-width: 200px;
     --element-height: 30px;
-    --element-color: hsl(100, 100%, 65%);
+    --element-color: red;
+    --element-color-none: none;
 }
 
-section {
-    padding: 100px;
+
+#container {
+    margin: 100px;
+    width: 200px;
+    height: 150px;
+    padding: 0;
+
 }
 
 #element {
     width: var(--element-width);
     height: var(--element-height);
     background-color: var(--element-color);
-    position: absolute;
+    position: relative;
+    top: 60px;
+    transition: background-color 0.3s ease-out;
+}
+
+#container:hover #element {
+    background-color: var(--element-color-none);
 }
 
 #element::before,
@@ -30,16 +42,40 @@ section {
     content: "";
 }
 
+/*BALKJE BOVEN*/
 #element::before {
     left: 0;
     top: -60px;
-    border-top-right-radius: 30px;
-    border-top-left-radius: 30px;
+    border-top-right-radius: 50px;
+    border-top-left-radius: 50px;
+    transform: rotate(0deg);
+    transform-origin: bottom left;
+    transition: all 0.4s ease-in-out;
 }
 
+/*BALKJE ONDER*/
 #element::after {
     left: 0;
     top: 60px;
     border-bottom-right-radius: 50px;
     border-bottom-left-radius: 50px;
+    transform: rotate(0deg);
+    transform-origin: top left;
+    transition: all 0.4s ease-in-out;
+}
+
+/*BALKJE BOVEN AFTER STATUS*/
+#container:hover #element::before {
+    transform: rotate(45deg);
+    transform-origin: bottom left;
+    border-bottom-left-radius: 50px;
+    border-top-right-radius: 80px;
+}
+
+/*BALKJE ONDER AFTER STATUS*/
+#container:hover #element::after {
+    transform: rotate(-45deg);
+    transform-origin: top left;
+    border-top-left-radius: 50px;
+    border-bottom-right-radius: 80px;
 }
