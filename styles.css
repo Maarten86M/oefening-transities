@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --element-width: 200px;
+    --element-height: 30px;
+    --element-color: hsl(100, 100%, 65%);
+}
+
+section {
+    padding: 100px;
+}
+
+#element {
+    width: var(--element-width);
+    height: var(--element-height);
+    background-color: var(--element-color);
+    position: absolute;
+}
+
+#element::before,
+#element::after {
+    background-color: var(--element-color);
+    width: var(--element-width);
+    height: var(--element-height);
+    position: absolute;
+    display: block;
+    content: "";
+}
+
+#element::before {
+    left: 0;
+    top: -60px;
+    border-top-right-radius: 30px;
+    border-top-left-radius: 30px;
+}
+
+#element::after {
+    left: 0;
+    top: 60px;
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+}
