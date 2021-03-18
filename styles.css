@@ -79,3 +79,19 @@
     border-top-left-radius: 50px;
     border-bottom-right-radius: 80px;
 }
+
+#streep {
+    display: block;
+    width: 200px;
+    height: 20px;
+    background-color: red;
+    left: 0px;
+    top:200px;
+    position: relative;
+    border-radius: 30px;
+    transition: background-color 2s ease-out;
+}
+
+#container:hover #streep {
+    background-color: var(--element-color-none);
+}
